@@ -11,7 +11,8 @@
 <body>
 <div class="container-fluid">
 <div id="header">
-<h1>Guess Trump's best words!<br>Click on any key to start playing!</h1>
+<h1>Guess Trump's best words!</h1><br>
+<h5>Click on any key to start playing!</h5>
 <div id="trumpgame" class="text-danger"></div>
 <br>
 <div><img src="assets/images/trump.jpg"><img id="nasty" src="assets/images/nasty.jpg"></div>
@@ -64,7 +65,9 @@ var guess = event.key.toUpperCase();
    var html = //"<h1>Guess Trump's best words! Click on any key to start playing!</h1>" +
               "<h2>Current Word: " + answerArray+ "</h2>"+
               "<h2>Guesses Remaining: " + lives + "</h2>"+
-              "<h2>Letters Guessed: " + lettersGuessed +"</h2>"; 
+              "<h2>Letters Guessed: " + lettersGuessed +"</h2>"+
+              "<h2>Wins:" + wins + "</h2>"; 
+
              
 
 	document.querySelector('#trumpgame').innerHTML = html;
@@ -72,8 +75,9 @@ var guess = event.key.toUpperCase();
 	//answerArray.join(' ');
 
 	if (remainingLetters===0){
-		document.getElementById('nasty').style.visibility = "visible";
-
+		wins++;
+		document.getElementById('nasty').style.visibility = "visible";	
+        
 		}
 }
      
