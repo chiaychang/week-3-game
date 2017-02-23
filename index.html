@@ -22,7 +22,7 @@
 <script type="text/javascript">
 
 document.getElementById('nasty').style.visibility = "hidden";
-var words = ["WRONG","VERY","HUGE","IVANKA","HILARY","PUSSY","CHINA","WALL","FAKENEWS","BING","RUSSIA","GREAT"];
+var words = ["VERY","HUGE","YUGE","PUSSY","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","TREMENDOUS","GRAB","LIGHTWEIGHT"];
 
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
@@ -33,10 +33,12 @@ var answerArray = [];
    for (var i = 0; i < word.length; i++) {
    answerArray[i] = "___";
 }
-var remainingLetters = word.length; 
+//var remainingLetters = word.length; 
 
 var audiobing = new Audio('assets/audio/bing.mp3');
                 audiobing.play();
+
+var audiowrong = new Audio('assets/audio/wrong.mp3');
 
 //while (remainingLetters<0) {
 
@@ -55,40 +57,34 @@ var guess = event.key.toUpperCase();
 
                              answerArray[j] = guess;
 
-                             remainingLetters--;
-                         }
+                            if(answerArray.includes("___")==false){
+                            wins++;
+                            document.getElementById('nasty').style.visibility = "visible";
+                            var audiokaching = new Audio('assets/audio/kaching.mp3');
+                            audiokaching.play();  
+                                }     
+                          }  
 
-                        else {
-                        var audiowrong = new Audio('assets/audio/wrong.mp3');
-                        audiowrong.play();
-                       }
-
-                }
-                             
+                        else if(answerArray[j] !== guess){
+                            audiowrong.play();
+                          }   
+                  }
+  console.log(answerArray);                           
 	console.log(lives);
 	console.log(word); 
 
 
-   var html = //"<h1>Guess Trump's best words! Click on any key to start playing!</h1>" +
-              "<h2>Current Word: " + answerArray+ "</h2>"+
+   var html = "<h2>Current Word: " + answerArray+ "</h2>"+
               "<h2>Guesses Remaining: " + lives + "</h2>"+
               "<h2>Letters Guessed: " + lettersGuessed +"</h2>"+
-              "<h2>Wins:" + wins + "</h2>"; 
-
-             
+              "<h2>Wins:" + wins + "</h2>";         
 
 	document.querySelector('#trumpgame').innerHTML = html;
 
-	//answerArray.join(' ');
-
-	if (remainingLetters===0){
-		wins++;
-		document.getElementById('nasty').style.visibility = "visible";	
-        
-		}
 }
-     
 
+
+ 
                
 
 </script>
