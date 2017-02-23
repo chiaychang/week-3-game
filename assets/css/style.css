@@ -6,9 +6,15 @@ div {
 
 #header {
 	width: 100%;
+	margin-top: 50px;
 }
+
 
 #trumpgame {
 	margin-top: 70px;
 }
 
+img:hover {
+	width: 28%;
+	transition: 1s;
+}
