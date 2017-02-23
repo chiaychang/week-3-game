@@ -11,10 +11,10 @@ div {
 
 
 #trumpgame {
-	margin-top: 70px;
+	margin-top: 50px;
 }
 
 img:hover {
-	width: 28%;
+	width: 18%;
 	transition: 1s;
 }
