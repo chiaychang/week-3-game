@@ -38,10 +38,6 @@ var answerArray = [];
 var audiobing = new Audio('assets/audio/bing.mp3');
                 audiobing.play();
 
-var audiowrong = new Audio('assets/audio/wrong.mp3');
-
-//while (remainingLetters<0) {
-
 document.onkeyup = function(event) {
 
 var guess = event.key.toUpperCase();
@@ -53,7 +49,7 @@ var guess = event.key.toUpperCase();
                 
                 for (var j = 0; j < word.length; j++) {
 
-                       if (word[j] === guess) {
+                       if (guess===word[j]) {
 
                              answerArray[j] = guess;
 
@@ -65,9 +61,12 @@ var guess = event.key.toUpperCase();
                                 }     
                           }  
 
-                        else if(answerArray[j] !== guess){
+                        if(word.includes(guess)===false){
+                            var audiowrong = new Audio('assets/audio/wrong.mp3');
                             audiowrong.play();
-                          }   
+                          } 
+
+                             
                   }
   console.log(answerArray);                           
 	console.log(lives);
