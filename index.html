@@ -22,7 +22,7 @@
 <script type="text/javascript">
 
 document.getElementById('nasty').style.visibility = "hidden";
-var words = ["VERY","HUGE","YUGE","PUSSY","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","TREMENDOUS","GRAB","LIGHTWEIGHT"];
+var words = ["VERY","HUGE","YUGE","ISIS","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","IMMIGRANT","GRAB","LIGHTWEIGHT"];
 
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
@@ -53,7 +53,7 @@ var guess = event.key.toUpperCase();
 
                              answerArray[j] = guess;
 
-                            if(answerArray.includes("___")==false){
+                            if(answerArray.includes("___")===false){
                             wins++;
                             document.getElementById('nasty').style.visibility = "visible";
                             var audiokaching = new Audio('assets/audio/kaching.mp3');
@@ -61,7 +61,7 @@ var guess = event.key.toUpperCase();
                                 }     
                           }  
 
-                        if(word.includes(guess)===false){
+                          if(word.includes(guess)===false){
                             var audiowrong = new Audio('assets/audio/wrong.mp3');
                             audiowrong.play();
                           } 
