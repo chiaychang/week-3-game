@@ -43,7 +43,7 @@ var audiobing = new Audio('assets/audio/bing.mp3');
 document.onkeyup = function(event) {
 var guess = event.key.toUpperCase();
                 
-                if(alphabets.includes(guess)===true)
+                if(alphabets.includes(guess)===true && lettersGuessed.includes(guess)===false)
                     {
                 lives--;
                     }
