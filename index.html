@@ -32,7 +32,7 @@ var lives = 18;
 var wins = 0;
 var lettersGuessed = [];
 var answerArray = [];
-   for (var i = 0; i < word.length; i++) {
+   for (i = 0; i < word.length; i++) {
    answerArray[i] = "___";
 }
 
@@ -69,6 +69,19 @@ var guess = event.key.toUpperCase();
                                 
 
                                //reset game when lives remaining
+                               function reset(){
+                                word = words[Math.floor(Math.random() * words.length)];
+                                answerArray = [];
+                                for (i = 0; i < word.length; i++) {
+                                answerArray[i] = "___";
+                                   }
+                                lettersGuessed = [];
+                               }
+
+                                   if(lives>0&&answerArray.includes("___")==false) {
+                                           setTimeout(reset,2);
+                                       }
+
 
 
 
