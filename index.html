@@ -28,7 +28,7 @@ var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
 var alphabets = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var lives = 18;
+var lives = 25;
 var wins = 0;
 var lettersGuessed = [];
 var answerArray = [];
@@ -81,10 +81,6 @@ var guess = event.key.toUpperCase();
                                    if(lives>0&&answerArray.includes("___")==false) {
                                            setTimeout(reset,2);
                                        }
-
-
-
-
 
                                 }     
                           }  
