@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Hangman Game</title>
+  <title>Hangman Game</title>
 
 <link rel="stylesheet" href="assets/css/reset.css">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -20,10 +20,8 @@
 </div>
 
 <script type="text/javascript">
-
 document.getElementById('nasty').style.visibility = "hidden";
-var words = ["VERY","HUGE","YUGE","ISIS","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","IMMIGRANT","GRAB","LIGHTWEIGHT"];
-
+var words = ["VERY","HUGE","YUGE","PUSSY","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","TREMENDOUS","GRAB","LIGHTWEIGHT"];
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
 var lives = 20;
@@ -33,78 +31,57 @@ var answerArray = [];
    for (var i = 0; i < word.length; i++) {
    answerArray[i] = "___";
 }
-//var remainingLetters = word.length; 
 
 var audiobing = new Audio('assets/audio/bing.mp3');
                 audiobing.play();
 
-document.onkeyup = function(event) {
 
+document.onkeyup = function(event) {
 var guess = event.key.toUpperCase();
                 
-
-   	            lives--;
-   	            lettersGuessed = guess + ", " + lettersGuessed;
-
+                lives--;
+                
+                if (lettersGuessed.includes(guess)===false){
+                lettersGuessed = guess + ", " + lettersGuessed;
+                   }
                 
                 for (var j = 0; j < word.length; j++) {
-
-                       if (guess===word[j]) {
-
+                       if (word[j] === guess) {
                              answerArray[j] = guess;
-
-                            if(answerArray.includes("___")===false){
-
+                            if(answerArray.includes("___")==false){
                             wins++;
                             document.getElementById('nasty').style.visibility = "visible";
                             var audiokaching = new Audio('assets/audio/kaching.mp3');
-                            audiokaching.play(); 
-                     
-                            word = words[Math.floor(Math.random() * words.length)];
-                            answerArray = [];
-                               for (var i = 0; i < word.length; i++) {
-                                 answerArray[i] = "___";    
-                                      }
-                            lettersGuessed = [];
-                            lettersGuessed = guess + ", " + lettersGuessed;
-
-                             
-                             }     
-                      
-                      }  
-
-                          if(word.includes(guess)===false){
-                            var audiowrong = new Audio('assets/audio/wrong.mp3');
-                            audiowrong.play();
-                                } 
-
+                            audiokaching.play();  
+                                }     
+                          }  
+                        else if(word.includes(guess)===false){
+                               var audiowrong = new Audio('assets/audio/wrong.mp3');
+                               audiowrong.play();
+                                }    
                   }
   console.log(answerArray);                           
-	console.log(lives);
-	console.log(word); 
+  console.log(lives);
+  console.log(word); 
+   var html = "<h2>Current Word: " + answerArray+ "</h2>"+
+              "<h2>Guesses Remaining: " + lives + "</h2>"+
+              "<h2>Letters Guessed: " + lettersGuessed +"</h2>"+
+              "<h2>Wins:" + wins + "</h2>";         
+  document.querySelector('#trumpgame').innerHTML = html;
 
 
-   var html = "<h3>Current Word: " + answerArray+ "</h3>"+
-              "<h3>Guesses Remaining: " + lives + "</h3>"+
-              "<h3>Letters Guessed: " + lettersGuessed +"</h3>"+
-              "<h3>Wins:" + wins + "</h3>";         
-
-	document.querySelector('#trumpgame').innerHTML = html;
-
-
-  if(lives===0) {
+             if(lives===0) {
                           var tryagain = confirm("You Lose! Try Again?");
-                               if (tryagain) {
-                                location.reload();
-                                   }
-                            }
+                               
+                              if (tryagain) {
+                                 location.reload();
+                                   }                  
+                      }
+
 
 }
-
-
  
                
-
 </script>
 
 </body>
