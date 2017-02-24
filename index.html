@@ -23,11 +23,12 @@
 
 
 document.getElementById('nasty').style.visibility = "hidden";
-var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","GRAB","LIGHTWEIGHT"];
+var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","GRAB","LIGHTWEIGHT","LOSER","SAD","DISASTER","GREAT"];
+
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
 var alphabets = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var lives = 20;
+var lives = 18;
 var wins = 0;
 var lettersGuessed = [];
 var answerArray = [];
@@ -91,7 +92,7 @@ var guess = event.key.toUpperCase();
 
        //reload game when lives run out
        if(lives===0) {
-                      var tryagain = confirm("You Lose! Try Again?");   
+                      var tryagain = confirm("Total Disaster!!!! Try Again?");   
                             if (tryagain) {
                                  location.reload();
                                  }                  
