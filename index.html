@@ -69,16 +69,15 @@ var guess = event.key.toUpperCase();
                             lettersGuessed = guess + ", " + lettersGuessed;
 
                              
-                                }     
+                             }     
                       
                       }  
 
                           if(word.includes(guess)===false){
                             var audiowrong = new Audio('assets/audio/wrong.mp3');
                             audiowrong.play();
-                          } 
+                                } 
 
-                             
                   }
   console.log(answerArray);                           
 	console.log(lives);
@@ -91,6 +90,14 @@ var guess = event.key.toUpperCase();
               "<h3>Wins:" + wins + "</h3>";         
 
 	document.querySelector('#trumpgame').innerHTML = html;
+
+
+  if(lives===0) {
+                          var tryagain = confirm("You Lose! Try Again?");
+                               if (tryagain) {
+                                location.reload();
+                                   }
+                            }
 
 }
 
