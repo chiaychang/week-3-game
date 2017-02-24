@@ -14,7 +14,10 @@ div {
 	margin-top: 50px;
 }
 
+img {
+	transition-duration: 5s;
+}
+
 img:hover {
 	width: 18%;
-	transition: 1s;
 }

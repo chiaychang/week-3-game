@@ -54,12 +54,24 @@ var guess = event.key.toUpperCase();
                              answerArray[j] = guess;
 
                             if(answerArray.includes("___")===false){
+
                             wins++;
                             document.getElementById('nasty').style.visibility = "visible";
                             var audiokaching = new Audio('assets/audio/kaching.mp3');
-                            audiokaching.play();  
+                            audiokaching.play(); 
+                     
+                            word = words[Math.floor(Math.random() * words.length)];
+                            answerArray = [];
+                               for (var i = 0; i < word.length; i++) {
+                                 answerArray[i] = "___";    
+                                      }
+                            lettersGuessed = [];
+                            lettersGuessed = guess + ", " + lettersGuessed;
+
+                             
                                 }     
-                          }  
+                      
+                      }  
 
                           if(word.includes(guess)===false){
                             var audiowrong = new Audio('assets/audio/wrong.mp3');
