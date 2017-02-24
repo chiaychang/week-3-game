@@ -20,6 +20,8 @@
 </div>
 
 <script type="text/javascript">
+
+
 document.getElementById('nasty').style.visibility = "hidden";
 var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","GRAB","LIGHTWEIGHT"];
 //pick a random word
@@ -45,35 +47,49 @@ var guess = event.key.toUpperCase();
                 lives--;
                     }
 
-                if (lettersGuessed.includes(guess)===false||alphabets.includes(guess)===ture){
+                //print out the keys guessed, omit the ones already clicked and non-alphabets
+                if (lettersGuessed.includes(guess)===false && alphabets.includes(guess)===true){
                 lettersGuessed = guess + ", " + lettersGuessed;
                    }
                 
                 for (var j = 0; j < word.length; j++) {
+
+                      //when right key is pressed
                        if (word.charAt(j) === guess) {
+                            
                              answerArray[j] = guess;
-                            if(answerArray.includes("___")==false){
-                            wins++;
-                            document.getElementById('nasty').style.visibility = "visible";
-                            var audiokaching = new Audio('assets/audio/kaching.mp3');
-                            audiokaching.play();  
+                               
+                               //winning situation
+                               if(answerArray.includes("___")==false){
+                                wins++;
+                                document.getElementById('nasty').style.visibility = "visible";
+                                var audiokaching = new Audio('assets/audio/kaching.mp3');
+                                audiokaching.play();  
+                                
+
+                               //reset game when lives remaining
+
+
+
+
                                 }     
                           }  
-                        else if(word.includes(guess)===false){
+
+                       //when wrong key is pressed
+                      else if(word.includes(guess)===false){
                                var audiowrong = new Audio('assets/audio/wrong.mp3');
                                audiowrong.play();
                   
                               }    
-                  }
+                 }
+
+
+  //debuging               
   console.log(answerArray);                           
   console.log(lives);
   console.log(word); 
-   var html = "<h2>Current Word: " + answerArray+ "</h2>"+
-              "<h2>Guesses Remaining: " + lives + "</h2>"+
-              "<h2>Letters Guessed: " + lettersGuessed +"</h2>"+
-              "<h2>Wins:" + wins + "</h2>";         
-  document.querySelector('#trumpgame').innerHTML = html;
 
+       //reload game when lives run out
        if(lives===0) {
                       var tryagain = confirm("You Lose! Try Again?");   
                             if (tryagain) {
@@ -81,9 +97,14 @@ var guess = event.key.toUpperCase();
                                  }                  
                       }
 
-
+     //updating page
+        var html = "<h2>Current Word: " + answerArray+ "</h2>"+
+              "<h2>Guesses Remaining: " + lives + "</h2>"+
+              "<h2>Letters Guessed: " + lettersGuessed +"</h2>"+
+              "<h2>Wins:" + wins + "</h2>";         
+     document.querySelector('#trumpgame').innerHTML = html;
 }
- 
+
                
 </script>
 
