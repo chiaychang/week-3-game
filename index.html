@@ -21,9 +21,10 @@
 
 <script type="text/javascript">
 document.getElementById('nasty').style.visibility = "hidden";
-var words = ["VERY","HUGE","YUGE","PUSSY","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","TREMENDOUS","GRAB","LIGHTWEIGHT"];
+var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","GRAB","LIGHTWEIGHT"];
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
+var alphabets = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lives = 20;
 var wins = 0;
 var lettersGuessed = [];
@@ -39,9 +40,12 @@ var audiobing = new Audio('assets/audio/bing.mp3');
 document.onkeyup = function(event) {
 var guess = event.key.toUpperCase();
                 
+                if(alphabets.includes(guess)===true)
+                    {
                 lives--;
-                
-                if (lettersGuessed.includes(guess)===false){
+                    }
+
+                if (lettersGuessed.includes(guess)===false||alphabets.includes(guess)===ture){
                 lettersGuessed = guess + ", " + lettersGuessed;
                    }
                 
