@@ -23,7 +23,7 @@
 
 
 document.getElementById('nasty').style.visibility = "hidden";
-var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","GRAB","LIGHTWEIGHT","LOSER","SAD","DISASTER","GREAT"];
+var words = ["VERY","HUGE","YUGE","CHINA","WALL","FAKENEWS","BING","RUSSIA","BAD","GRAB","LIGHTWEIGHT","LOSER","SAD","DISASTER","GREAT","STUPID","RAPIST","ILLEGAL"];
 
 //pick a random word
 var word = words[Math.floor(Math.random() * words.length)];
@@ -111,7 +111,7 @@ var guess = event.key.toUpperCase();
         var html = "<h2>Current Word: " + answerArray+ "</h2>"+
               "<h2>Guesses Remaining: " + lives + "</h2>"+
               "<h2>Letters Guessed: " + lettersGuessed +"</h2>"+
-              "<h2>Wins:" + wins + "</h2>";         
+              "<h2>Wins: " + wins + "</h2>";         
      document.querySelector('#trumpgame').innerHTML = html;
 }
 
