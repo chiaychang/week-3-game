@@ -50,7 +50,7 @@ var guess = event.key.toUpperCase();
                    }
                 
                 for (var j = 0; j < word.length; j++) {
-                       if (word[j] === guess) {
+                       if (word.charAt(j) === guess) {
                              answerArray[j] = guess;
                             if(answerArray.includes("___")==false){
                             wins++;
@@ -62,7 +62,8 @@ var guess = event.key.toUpperCase();
                         else if(word.includes(guess)===false){
                                var audiowrong = new Audio('assets/audio/wrong.mp3');
                                audiowrong.play();
-                                }    
+                  
+                              }    
                   }
   console.log(answerArray);                           
   console.log(lives);
@@ -73,13 +74,11 @@ var guess = event.key.toUpperCase();
               "<h2>Wins:" + wins + "</h2>";         
   document.querySelector('#trumpgame').innerHTML = html;
 
-
-             if(lives===0) {
-                          var tryagain = confirm("You Lose! Try Again?");
-                               
-                              if (tryagain) {
+       if(lives===0) {
+                      var tryagain = confirm("You Lose! Try Again?");   
+                            if (tryagain) {
                                  location.reload();
-                                   }                  
+                                 }                  
                       }
 
 
